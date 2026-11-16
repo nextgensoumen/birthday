@@ -15,6 +15,20 @@
 </head>
 <body>
 
+    <!-- Entry Curtain: tap to open the show -->
+    <div class="curtain-stage" id="curtainStage" role="button" tabindex="0" aria-label="Tap to open the curtains">
+        <div class="curtain-panel curtain-left"></div>
+        <div class="curtain-panel curtain-right"></div>
+        <div class="curtain-valance"></div>
+        <div class="curtain-floor"></div>
+        <div class="curtain-prompt">
+            <div class="curtain-emoji">🎂</div>
+            <h1 class="curtain-title">A Birthday Surprise<br>for Ananya</h1>
+            <p class="curtain-hint">Tap to open the curtains ✨</p>
+        </div>
+    </div>
+
+
     <!-- Birthday Celebration Ambience -->
     <div class="celebration-layer" id="celebration" aria-hidden="true"></div>
 
@@ -32,6 +46,10 @@
                 <div class="equalizer-bars">
                     <span></span><span></span><span></span>
                 </div>
+            </button>
+            <button class="music-pill-btn close-book-btn" id="closeBookBtn" aria-label="Close the book">
+                <span class="wand-icon">📕</span>
+                <span>Close Book</span>
             </button>
         </div>
     </header>

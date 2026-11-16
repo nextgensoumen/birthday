@@ -185,6 +185,50 @@ function toggleBirthdaySong() {
     else startBirthdaySong();
 }
 
+
+// --- ENTRY CURTAIN & CLOSE BOOK ---
+let curtainOpen = false;
+
+function openCurtain() {
+    if (curtainOpen) return;
+    const stage = document.getElementById('curtainStage');
+    if (!stage) { curtainOpen = true; return; }
+    curtainOpen = true;
+    stage.classList.add('open');
+    startBirthdaySong(); // starts from the user's tap, so browsers allow sound
+    setTimeout(() => { if (curtainOpen) stage.classList.add('gone'); }, 2300);
+}
+
+function resetBook() {
+    for (let i = 1; i <= totalLeaves; i++) {
+        const paper = document.getElementById(`p${i}`);
+        if (paper) paper.classList.remove('flipped');
+    }
+    currentLeaf = 0;
+    isAnimating = false;
+    applyRestingZIndices();
+    updateConsole();
+    // put the candle back to its first state
+    const rig = document.getElementById('candleRig');
+    const blessing = document.getElementById('blessingCard');
+    const prompt = document.getElementById('candlePrompt');
+    if (rig) rig.classList.remove('extinguished');
+    if (blessing) blessing.style.display = 'none';
+    if (prompt) prompt.style.display = 'block';
+}
+
+function closeBook() {
+    const stage = document.getElementById('curtainStage');
+    stopBirthdaySong();
+    resetBook();
+    curtainOpen = false;
+    if (stage) {
+        stage.classList.remove('gone');
+        void stage.offsetWidth; // let the browser register the visible state first
+        stage.classList.remove('open');
+    }
+}
+
 // --- FLAWLESS 3D PAGE-TURNING ENGINE ---
 let currentLeaf = 0;
 const totalLeaves = 8; // p1..p8
@@ -265,7 +309,7 @@ function updateConsole() {
 }
 
 function turnNextLeaf() {
-    if (isAnimating || currentLeaf >= totalLeaves) return;
+    if (!curtainOpen || isAnimating || currentLeaf >= totalLeaves) return;
 
     isAnimating = true;
     playRealisticPaperSound();
@@ -288,7 +332,7 @@ function turnNextLeaf() {
 }
 
 function turnPrevLeaf() {
-    if (isAnimating || currentLeaf <= 0) return;
+    if (!curtainOpen || isAnimating || currentLeaf <= 0) return;
 
     isAnimating = true;
     playRealisticPaperSound();
@@ -354,6 +398,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (prevBtn) prevBtn.addEventListener('click', turnPrevLeaf);
     if (nextBtn) nextBtn.addEventListener('click', turnNextLeaf);
+    const curtainStage = document.getElementById('curtainStage');
+    if (curtainStage) {
+        curtainStage.addEventListener('click', openCurtain);
+        curtainStage.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openCurtain(); }
+        });
+    }
+    const closeBookBtn = document.getElementById('closeBookBtn');
+    if (closeBookBtn) closeBookBtn.addEventListener('click', closeBook);
     const birthdayBtn = document.getElementById('birthdayBtn');
     if (birthdayBtn) birthdayBtn.addEventListener('click', toggleBirthdaySong);
 
