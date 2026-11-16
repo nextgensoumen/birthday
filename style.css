@@ -1704,3 +1704,13 @@ body[data-scene="7"] .indicator-dots { color: #d9b866; }
 .parchment-sheet.theme-requirement .spell-row:nth-child(3) { background: #d3f3e0; transform: rotate(-0.9deg); }
 .parchment-sheet.theme-requirement .spell-info h4 { font-family: var(--font-script); font-size: 1.35rem; letter-spacing: 0; }
 .parchment-sheet.theme-requirement .spell-info p { font-family: var(--font-script); font-size: 1.2rem; line-height: 1.2; font-weight: 600; }
+
+/* Top bar: keep crest and both music buttons on one tidy row */
+.top-nav { max-width: 1100px; gap: 10px; }
+.nav-controls-group { display: flex; flex-direction: row; align-items: center; gap: 10px; flex-wrap: nowrap; }
+.nav-crest, .music-pill-btn { white-space: nowrap; }
+.music-pill-btn { padding: 8px 16px; }
+@media (max-width: 760px) {
+    .nav-crest .nav-text { display: none; }
+    .music-pill-btn { padding: 7px 12px; font-size: 0.74rem; gap: 6px; }
+}

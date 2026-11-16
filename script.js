@@ -5,8 +5,6 @@
 
 // --- AUDIO SYNTHESIS ENGINE ---
 let audioCtx = null;
-let isMusicPlaying = false;
-let musicTimer = null;
 
 function getAudioContext() {
     if (!audioCtx) {
@@ -130,53 +128,61 @@ function playCelestaNote(freq, duration, delay = 0) {
     osc2.stop(ctx.currentTime + delay + duration);
 }
 
-// Hedwig's Theme Melody Notes
-const HEDWIG_NOTES = [
-    { freq: 493.88, dur: 0.5 },  // B4
-    { freq: 659.25, dur: 0.75 }, // E5
-    { freq: 783.99, dur: 0.35 }, // G5
-    { freq: 739.99, dur: 0.5 },  // F#5
-    { freq: 659.25, dur: 1.0 },  // E5
-    { freq: 987.77, dur: 0.55 }, // B5
-    { freq: 880.00, dur: 1.3 },  // A5
-    { freq: 739.99, dur: 1.3 },  // F#5
-    { freq: 659.25, dur: 0.75 }, // E5
-    { freq: 783.99, dur: 0.35 }, // G5
-    { freq: 739.99, dur: 0.5 },  // F#5
-    { freq: 622.25, dur: 0.9 },  // D#5
-    { freq: 698.46, dur: 0.7 },  // F5
-    { freq: 493.88, dur: 1.5 }   // B4
+// --- HAPPY BIRTHDAY SONG (music-box style, public-domain melody) ---
+const BDAY_BEAT = 0.5; // seconds per beat
+const BDAY_NOTES = [
+    // Happy birthday to you
+    [392.00, 0.75], [392.00, 0.25], [440.00, 1], [392.00, 1], [523.25, 1], [493.88, 2],
+    // Happy birthday to you
+    [392.00, 0.75], [392.00, 0.25], [440.00, 1], [392.00, 1], [587.33, 1], [523.25, 2],
+    // Happy birthday dear Ananya
+    [392.00, 0.75], [392.00, 0.25], [783.99, 1], [659.25, 1], [523.25, 1], [493.88, 1], [440.00, 2],
+    // Happy birthday to you
+    [698.46, 0.75], [698.46, 0.25], [659.25, 1], [523.25, 1], [587.33, 1], [523.25, 2.5]
 ];
+let isBdayPlaying = false;
+let bdayTimer = null;
+let bdayStep = 0;
 
-let hedwigStep = 0;
-function playHedwigLoop() {
-    if (!isMusicPlaying) return;
-
-    const note = HEDWIG_NOTES[hedwigStep];
-    playCelestaNote(note.freq, note.dur * 1.4);
-
-    hedwigStep = (hedwigStep + 1) % HEDWIG_NOTES.length;
-    const pause = (hedwigStep === 0) ? 2400 : note.dur * 960;
-    musicTimer = setTimeout(playHedwigLoop, pause);
+function setBdayButton(playing) {
+    const btn = document.getElementById('birthdayBtn');
+    const label = document.getElementById('birthdayText');
+    if (!btn || !label) return;
+    btn.classList.toggle('playing', playing);
+    label.textContent = playing ? 'Playing... tap to pause' : 'Happy Birthday Music';
 }
 
-function toggleHedwigMusic() {
-    const btn = document.getElementById('musicBtn');
-    const label = document.getElementById('musicText');
+function stopBirthdaySong() {
+    isBdayPlaying = false;
+    if (bdayTimer) clearTimeout(bdayTimer);
+    setBdayButton(false);
+}
 
-    if (isMusicPlaying) {
-        isMusicPlaying = false;
-        if (musicTimer) clearTimeout(musicTimer);
-        btn.classList.remove('playing');
-        label.textContent = "Hedwig's Theme (Music Box)";
-    } else {
-        isMusicPlaying = true;
-        getAudioContext();
-        hedwigStep = 0;
-        btn.classList.add('playing');
-        label.textContent = "Playing Magic...";
-        playHedwigLoop();
+function playBirthdayStep() {
+    if (!isBdayPlaying) return;
+    if (bdayStep >= BDAY_NOTES.length) {
+        bdayStep = 0;
+        bdayTimer = setTimeout(playBirthdayStep, 2500); // short pause, then sing again
+        return;
     }
+    const [freq, beats] = BDAY_NOTES[bdayStep];
+    playCelestaNote(freq, beats * BDAY_BEAT * 1.6);
+    bdayStep++;
+    bdayTimer = setTimeout(playBirthdayStep, beats * BDAY_BEAT * 1000);
+}
+
+function startBirthdaySong() {
+    if (bdayTimer) clearTimeout(bdayTimer);
+    isBdayPlaying = true;
+    bdayStep = 0;
+    getAudioContext();
+    setBdayButton(true);
+    playBirthdayStep();
+}
+
+function toggleBirthdaySong() {
+    if (isBdayPlaying) stopBirthdaySong();
+    else startBirthdaySong();
 }
 
 // --- FLAWLESS 3D PAGE-TURNING ENGINE ---
@@ -324,6 +330,8 @@ function setupCandleRitual() {
             // Shimmer chimes
             playCelestaNote(880.00, 0.8, 0.08);
             playCelestaNote(1046.50, 1.2, 0.22);
+            // Birthday song after the wish
+            setTimeout(() => { if (!isBdayPlaying) startBirthdaySong(); }, 900);
         }
     });
 
@@ -342,12 +350,12 @@ function setupCandleRitual() {
 document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.getElementById('prevPageBtn');
     const nextBtn = document.getElementById('nextPageBtn');
-    const musicBtn = document.getElementById('musicBtn');
     const waxSeal = document.getElementById('frontWaxSeal');
 
     if (prevBtn) prevBtn.addEventListener('click', turnPrevLeaf);
     if (nextBtn) nextBtn.addEventListener('click', turnNextLeaf);
-    if (musicBtn) musicBtn.addEventListener('click', toggleHedwigMusic);
+    const birthdayBtn = document.getElementById('birthdayBtn');
+    if (birthdayBtn) birthdayBtn.addEventListener('click', toggleBirthdaySong);
 
     if (waxSeal) {
         waxSeal.addEventListener('click', (e) => {
