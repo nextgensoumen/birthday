@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Grimoire of Memories — Happy Birthday</title>
+
+    <!-- Google Fonts: Hogwarts & Literary Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;700;800;900&family=IM+Fell+English:ital@0;1&family=Caveat:wght@600;700&family=Marcellus&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Birthday Celebration Ambience -->
+    <div class="celebration-layer" id="celebration" aria-hidden="true"></div>
+
+    <!-- Top Hogwarts Navigation Bar -->
+    <header class="top-nav">
+        <div class="nav-crest">
+            <span class="lightning-glyph">⚡</span>
+            <span class="nav-text">Hogwarts Archives · Restricted Section</span>
+        </div>
+
+        <div class="nav-controls-group">
+            <button class="music-pill-btn" id="musicBtn" aria-label="Toggle Hedwig's Theme">
+                <span class="wand-icon" id="wandIcon">🪄</span>
+                <span id="musicText">Hedwig's Theme (Music Box)</span>
+                <div class="equalizer-bars" id="eqBars">
+                    <span></span><span></span><span></span>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <!-- 3D Book Experience Viewport -->
+    <main class="study-chamber">
+
+        <div class="book-container" id="bookContainer">
+
+            <!-- Realistic 3D Book Scene -->
+            <div class="book-scene" id="bookScene">
+                <div class="book" id="book">
+
+                    <!-- Book Physical Thickness / Stacked Paper Pages Edge -->
+                    <div class="book-thickness-left" id="thicknessLeft"></div>
+                    <div class="book-thickness-right" id="thicknessRight"></div>
+                    
+                    <!-- Center Spine Shadow & Hanging Silk Ribbon Bookmark -->
+                    <div class="book-spine-crease"></div>
+                    <div class="satin-ribbon">
+                        <div class="ribbon-tail"></div>
+                        <div class="ribbon-charm">⚡</div>
+                    </div>
+
+                    <!-- ================= SHEET 1: LEATHER COVER & PAGE 1 ================= -->
+                    <div class="paper" id="p1" style="z-index: 8;">
+                        <!-- FRONT COVER: Antique Leather with Deep Debossed Gold Stamping -->
+                        <div class="front cover-front">
+                            <div class="leather-texture"></div>
+                            <div class="cover-emboss-border">
+                                <div class="filigree-corner tl">❧</div>
+                                <div class="filigree-corner tr">❧</div>
+                                <div class="filigree-corner bl">❧</div>
+                                <div class="filigree-corner br">❧</div>
+
+                                <div class="cover-crest">⚡</div>
+                                <div class="cover-subtitle">CHRONICLES OF</div>
+                                <h1 class="cover-name">ANANYA</h1>
+                                <div class="gold-rune-divider">✦ · · · · · · · · ✦</div>
+                                <p class="cover-lore">A little book of memories, made with love, just for you</p>
+
+                                <!-- 3D Wax Seal with Realistic Stamp Depth -->
+                                <div class="wax-seal" id="frontWaxSeal">
+                                    <div class="seal-ring"></div>
+                                    <span class="seal-crest">H</span>
+                                </div>
+
+                                <div class="cover-hint">
+                                    <span>Lift Cover To Open ↷</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BACK: PAGE 1 (Hogwarts Acceptance Letter on Aged Parchment) -->
+                        <div class="back page-back parchment-sheet theme-gryffindor">
+                            <div class="parchment-texture"></div>
+                            <div class="page-gutter-shadow left-gutter"></div>
+                            <div class="page-frame">
+                                <div class="page-header-row">
+                                    <span class="page-script-tag">OWL POST DISPATCH</span>
+                                    <span class="roman-num">I</span>
+                                </div>
+
+                                <div class="crest-seal-watermark">🏰</div>
+                                <h2 class="hogwarts-school-title">HOGWARTS SCHOOL</h2>
+                                <h3 class="hogwarts-school-sub">of WITCHCRAFT and WIZARDRY</h3>
+
+                                <div class="letter-body">
+                                    <p class="letter-salutation">Dearest <em>Ananya</em>,</p>
+                                    <p>
+                                        Happy Birthday, Ananya! Honestly, I am just really happy for you today. You deserve every good thing in this world.
+                                    </p>
+                                    <p>
+                                        I made this little book for you with a lot of love. I hope it makes you smile, the way you always make me smile.
+                                    </p>
+                                    <p>
+                                        Turn the page. There is a lot I want to tell you. 💛
+                                    </p>
+                                </div>
+
+                                <div class="parchment-signature">
+                                    <span class="sign-close">From my heart,</span>
+                                    <span class="handwritten-sign">Your Best Friend 🪄</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ================= SHEET 2: PAGE 2 & PAGE 3 ================= -->
+                    <div class="paper" id="p2" style="z-index: 7;">
+                        <!-- FRONT: PAGE 2 (Marauder's Map & Keepsake Polaroids) -->
+                        <div class="front page-front parchment-sheet theme-marauder">
+                            <div class="parchment-texture"></div>
+                            <div class="page-gutter-shadow right-gutter"></div>
+                            <div class="page-frame">
+                                <div class="page-header-row">
+                                    <span class="page-script-tag">"I solemnly swear that I am up to no good"</span>
+                                    <span class="roman-num">II</span>
+                                </div>
+
+                                <h3 class="section-script-title">Mischievous Footprints</h3>
+                                <p class="section-script-sub">Some little memories of us:</p>
+
+                                <div class="map-teaser">
+                                    <div class="marauder-footsteps">👣 · · · · 👣 · · · · 👣</div>
+                                    <p>Turn the page. Two moments I never want to forget.</p>
+                                    <div class="marauder-footsteps">👣 · · · · 👣 · · · · 👣</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BACK: PAGE 3 (Spells of Your Character) -->
+                        <div class="back page-back parchment-sheet theme-ravenclaw">
+                            <div class="parchment-texture"></div>
+                            <div class="page-gutter-shadow left-gutter"></div>
+                            <div class="page-frame">
+                                <div class="page-header-row">
+                                    <span class="page-script-tag">Standard Book of Spells · Vol. VII</span>
+                                    <span class="roman-num">III</span>
+                                </div>
+
+                                <h3 class="section-script-title">Charms Inherent to You</h3>
+                                <p class="section-script-sub">Things that make you, you:</p>
+
+                                <div class="spell-cards-stack">
+                                    <div class="spell-row">
+                                        <div class="spell-sigil">✦</div>
+                                        <div class="spell-info">
+                                            <h4>Lumos Maxima</h4>
+                                            <p>Your smile. Even on my worst days, it makes everything feel okay.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="spell-row">
+                                        <div class="spell-sigil">✦</div>
+                                        <div class="spell-info">
+                                            <h4>Expecto Patronum</h4>
+                                            <p>When you are around, I feel calm and safe. You are like home to me.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="spell-row">
+                                        <div class="spell-sigil">✦</div>
+                                        <div class="spell-info">
+                                            <h4>Felix Felicis</h4>
+                                            <p>I hope this year is full of luck for you. You deserve it more than anyone.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ================= SHEET 3: ALBUM (PAGE 4 & PAGE 5) ================= -->
+                    <div class="paper" id="p3" style="z-index: 6;">
+                        <div class="front page-front parchment-sheet">
+                            <div class="parchment-texture"></div>
+                            <div class="page-gutter-shadow right-gutter"></div>
+                            <div class="page-frame">
+                                <div class="page-header-row">
+                                    <span class="page-script-tag">Memory Album · Plate One</span>
+                                    <span class="roman-num">IV</span>
+                                </div>
+                                <figure class="album-photo">
+                                    <div class="album-tape"></div>
+                                    <div class="album-photo-img ap-1" style="background-image:url('assets/photo_1.jpeg')" role="img" aria-label="Butterbeer Talks"></div>
+                                    <figcaption>Like a sister to me, always smiling 💛</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <div class="back page-back parchment-sheet">
+                            <div class="parchment-texture"></div>
+                            <div class="page-gutter-shadow left-gutter"></div>
+                            <div class="page-frame">
+                                <div class="page-header-row">
+                                    <span class="page-script-tag">Memory Album · Plate Two</span>
+                                    <span class="roman-num">V</span>
+                                </div>
+                                <figure class="album-photo">
+                                    <div class="album-tape"></div>
+                                    <div class="album-photo-img ap-2" style="background-image:url('assets/photo_2.jpeg')" role="img" aria-label="Starlit Escapades"></div>
+                                    <figcaption>One of my favourite memories 💛</figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ================= SHEET 4: PAGE 6 & PAGE 7 (Potions & Awards) ================= -->
+                    <div class="paper" id="p4" style="z-index: 5;">
+                        <div class="front page-front parchment-sheet theme-slytherin">
+                            <div class="parchment-texture"></div>
+                            <div class="page-gutter-shadow right-gutter"></div>
+                            <div class="page-frame">
+                                <div class="page-header-row">
+                                    <span class="page-script-tag">Advanced Potion-Making</span>
+                                    <span class="roman-num">VI</span>
+                                </div>
+
+                                <h3 class="section-script-title">The Ananya Elixir</h3>
+                                <p class="section-script-sub">What makes Ananya, Ananya:</p>
+
+                                <div class="spell-cards-stack">
+                                    <div class="spell-row">
+                                        <div class="spell-sigil">✦</div>
+                                        <div class="spell-info">
+                                            <h4>Two Spoonfuls of Laughter</h4>
+                                            <p>Your laughter. I could listen to it all day.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="spell-row">
+                                        <div class="spell-sigil">✦</div>
+                                        <div class="spell-info">
+                                            <h4>A Pinch of Stubborn Courage</h4>
+                                            <p>You never give up, even when things get hard. I am really proud of you.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="spell-row">
+                                        <div class="spell-sigil">✦</div>
+                                        <div class="spell-info">
+                                            <h4>One Drop of Moonlight Kindness</h4>
+                                            <p>Your kind heart. Everyone around you is lucky to have you.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="back page-back parchment-sheet theme-hufflepuff">
+                            <div class="parchment-texture"></div>
+                            <div class="page-gutter-shadow left-gutter"></div>
+                            <div class="page-frame">
+                                <div class="page-header-row">
+                                    <span class="page-script-tag">The Hogwarts Awards Ceremony</span>
+                                    <span class="roman-num">VII</span>
+                                </div>
+
+                                <h3 class="section-script-title">Special Awards for Services</h3>
+                                <p class="section-script-sub">Given tonight, straight from the heart:</p>
+
+                                <div class="spell-cards-stack">
+                                    <div class="spell-row">
+                                        <div class="spell-sigil">✦</div>
+                                        <div class="spell-info">
+                                            <h4>Order of Merlin, First Class</h4>
+                                            <p>For always being there for me, even when I did not say anything.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="spell-row">
+                                        <div class="spell-sigil">✦</div>
+                                        <div class="spell-info">
+                                            <h4>Prefect of Good Vibes</h4>
+                                            <p>For making normal days feel special.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="spell-row">
+                                        <div class="spell-sigil">✦</div>
+                                        <div class="spell-info">
+                                            <h4>Best Keeper of Secrets</h4>
+                                            <p>Because I can tell you anything, and I know you will never judge me.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ================= SHEET 5: PAGE 8 & PAGE 9 (Prophecies & Wishes) ================= -->
+                    <div class="paper" id="p5" style="z-index: 4;">
+                        <div class="front page-front parchment-sheet theme-divination">
+                            <div class="parchment-texture"></div>
+                            <div class="page-gutter-shadow right-gutter"></div>
+                            <div class="page-frame">
+                                <div class="page-header-row">
+                                    <span class="page-script-tag">Divination · Professor's Orb</span>
+                                    <span class="roman-num">VIII</span>
+                                </div>
+
+                                <h3 class="section-script-title">Prophecies for the Year Ahead</h3>
+                                <p class="section-script-sub">Let me tell you what I see for you:</p>
+
+                                <div class="spell-cards-stack">
+                                    <div class="spell-row">
+                                        <div class="spell-sigil">✦</div>
+                                        <div class="spell-info">
+                                            <h4>A Journey Is Coming</h4>
+                                            <p>A new chapter full of happiness, and everything you have been working for.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="spell-row">
+                                        <div class="spell-sigil">✦</div>
+                                        <div class="spell-info">
+                                            <h4>Doors Will Open</h4>
+                                            <p>All the doors you have been knocking on are going to open. I promise.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="spell-row">
+                                        <div class="spell-sigil">✦</div>
+                                        <div class="spell-info">
+                                            <h4>Joy, Unexpected</h4>
+                                            <p>Surprises, lots of laughing, and days when you just smile for no reason.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="back page-back parchment-sheet theme-requirement">
+                            <div class="parchment-texture"></div>
+                            <div class="page-gutter-shadow left-gutter"></div>
+                            <div class="page-frame">
+                                <div class="page-header-row">
+                                    <span class="page-script-tag">The Room of Requirement</span>
+                                    <span class="roman-num">IX</span>
+                                </div>
+
+                                <h3 class="section-script-title">Wishes, Conjured For You</h3>
+                                <p class="section-script-sub">What I wish for you, from my heart:</p>
+
+                                <div class="spell-cards-stack">
+                                    <div class="spell-row">
+                                        <div class="spell-sigil">✦</div>
+                                        <div class="spell-info">
+                                            <h4>Peace of Mind</h4>
+                                            <p>Peaceful days, fewer worries, and a heart that feels light.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="spell-row">
+                                        <div class="spell-sigil">✦</div>
+                                        <div class="spell-info">
+                                            <h4>Every Dream Within Reach</h4>
+                                            <p>May every dream you have come true, one by one.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="spell-row">
+                                        <div class="spell-sigil">✦</div>
+                                        <div class="spell-info">
+                                            <h4>Always Surrounded by Love</h4>
+                                            <p>May you always have people who love you the way you love them. I will always be one of them.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ================= SHEET 6: LETTER & CANDLE ================= -->
+                    <div class="paper" id="p6" style="z-index: 3;">
+                        <!-- FRONT: PAGE 4 (The Great Hall Personal Letter) -->
+                        <div class="front page-front parchment-sheet theme-patronus">
+                            <div class="parchment-texture"></div>
+                            <div class="page-gutter-shadow right-gutter"></div>
+                            <div class="page-frame">
+                                <div class="page-header-row">
+                                    <span class="page-script-tag">From The Archives of the Heart</span>
+                                    <span class="roman-num">X</span>
+                                </div>
+
+                                <h3 class="section-script-title">To A Cherished Soul</h3>
+
+                                <div class="heartfelt-letter-content">
+                                    <p>
+                                        Finding someone you can be yourself with is rare. I found that in you, a friend who became like a sister to me.
+                                    </p>
+                                    <p>
+                                        Thank you for listening to me, for all our silly laughs, and for always being there. You showed me what real friendship is.
+                                    </p>
+                                    <p>
+                                        I hope this year gives you back all the love you give to others. You really deserve to be happy. 💛
+                                    </p>
+                                    <div class="letter-postscript">
+                                        <span>Forever in your corner,</span>
+                                        <span class="letter-sign-name">Always ⚡</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BACK: PAGE 5 (The Great Hall Floating Candle Birthday Ritual) -->
+                        <div class="back page-back parchment-sheet theme-greathall">
+                            <div class="parchment-texture"></div>
+                            <div class="page-gutter-shadow left-gutter"></div>
+                            <div class="page-frame candle-page-layout">
+                                <div class="page-header-row">
+                                    <span class="page-script-tag">The Great Hall Ceremony</span>
+                                    <span class="roman-num">XI</span>
+                                </div>
+
+                                <h3 class="section-script-title">The Floating Flame</h3>
+                                <p class="section-script-sub">Close your eyes, make a wish, and tap the flame:</p>
+
+                                <!-- Realistic Levitating Great Hall Candle -->
+                                <div class="levitating-candle-rig" id="candleRig" title="Tap flame to extinguish & cast your wish">
+                                    <div class="candle-halo" id="candleHalo"></div>
+                                    <div class="flame-core" id="flameCore"></div>
+                                    <div class="candle-wick"></div>
+                                    <div class="candle-wax-pillar">
+                                        <div class="wax-drips"></div>
+                                    </div>
+                                </div>
+
+                                <div class="candle-prompt-text" id="candlePrompt">
+                                    Tap the flame to cast your wish ✨
+                                </div>
+
+                                <div class="enchanted-blessing-card" id="blessingCard">
+                                    <div class="blessing-sparkle-stars">✦ · 🌟 · ✦</div>
+                                    <h4>Spell Cast Successfully!</h4>
+                                    <p>Your wish is on its way. I hope it comes true. I will always be cheering for you.</p>
+                                    <button class="incendio-trigger" id="incendioBtn">Incendio! (Relight Flame)</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ================= SHEET 7: WORDS FROM THE HEART (PAGE 12 & PAGE 13) ================= -->
+                    <div class="paper" id="p7" style="z-index: 2;">
+                        <div class="front page-front parchment-sheet theme-dusk">
+                            <div class="parchment-texture"></div>
+                            <div class="page-gutter-shadow right-gutter"></div>
+                            <div class="page-frame final-page-center">
+                                <div class="page-header-row heart-header">
+                                    <span class="page-script-tag">Words From My Heart</span>
+                                    <span class="roman-num">XII</span>
+                                </div>
+                                <div class="heart-glyph">🤗</div>
+                                <p class="heart-line">I know you’ll leave us and go away, but still, you mean so much to me.</p>
+                            </div>
+                        </div>
+
+                        <div class="back page-back parchment-sheet theme-heart">
+                            <div class="parchment-texture"></div>
+                            <div class="page-gutter-shadow left-gutter"></div>
+                            <div class="page-frame final-page-center">
+                                <div class="page-header-row heart-header">
+                                    <span class="page-script-tag">Words From My Heart</span>
+                                    <span class="roman-num">XIII</span>
+                                </div>
+                                <div class="heart-name">You are my Anuuu.</div>
+                                <p class="heart-line">Wherever you are, just stay happy. ❤️</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ================= SHEET 8: MISCHIEF MANAGED & BACK COVER ================= -->
+                    <div class="paper" id="p8" style="z-index: 1;">
+                        <!-- FRONT: FINAL PAGE (Mischief Managed) -->
+                        <div class="front page-front parchment-sheet theme-mischief">
+                            <div class="parchment-texture"></div>
+                            <div class="page-gutter-shadow right-gutter"></div>
+                            <div class="page-frame final-page-center">
+                                <div class="marauder-footsteps">👣 · · · · 👣 · · · · 👣</div>
+                                <h2 class="mischief-managed-title">Mischief Managed.</h2>
+                                <p class="mischief-managed-sub">Our story is not over. There are so many more memories to make.</p>
+                                <div class="gold-crest-glyph">⚜ 🏰 ⚜</div>
+                                <p class="birthday-salute">Happy Birthday, Ananya. You are like a sister to me. 💛</p>
+                            </div>
+                        </div>
+
+                        <!-- BACK: Antique Leather Back Cover -->
+                        <div class="back cover-back">
+                            <div class="leather-texture"></div>
+                            <div class="cover-emboss-border">
+                                <div class="filigree-corner tl">❧</div>
+                                <div class="filigree-corner tr">❧</div>
+                                <div class="filigree-corner bl">❧</div>
+                                <div class="filigree-corner br">❧</div>
+
+                                <div class="back-cover-crest">⚜</div>
+                                <p class="back-cover-quote">"Words are, in my not-so-humble opinion, our most inexhaustible source of magic."</p>
+                                <span class="quote-author">— Albus Dumbledore</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Page-Wise Navigation Console -->
+            <nav class="book-nav-deck">
+                <button class="deck-btn" id="prevPageBtn" disabled>
+                    <span class="btn-arrow">❮</span>
+                    <span>Previous Leaf</span>
+                </button>
+
+                <div class="deck-indicator" id="deckIndicator">
+                    <span class="indicator-chapter">The Cover</span>
+                    <span class="indicator-dots">● ○ ○ ○ ○</span>
+                </div>
+
+                <button class="deck-btn" id="nextPageBtn">
+                    <span>Turn Leaf</span>
+                    <span class="btn-arrow">❯</span>
+                </button>
+            </nav>
+
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
